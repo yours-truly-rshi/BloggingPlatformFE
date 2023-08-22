@@ -1,10 +1,10 @@
 import React from 'react';
-import DataDisplay from './DataDisplay';
+import LoginForm from './LoginForm';
 
 function App() {
     return (
         <div className="App">
-            <DataDisplay />
+            <LoginForm/>
         </div>
     );
 }
