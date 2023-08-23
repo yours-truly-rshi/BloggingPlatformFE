@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import axios from 'axios';
+import {axiosInstance} from './utils';
 import {Link, useNavigate} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -23,7 +23,7 @@ const LoginForm = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:8000/api/users/login', {email, password});
+            const response = await axiosInstance.post('/api/users/login', {email, password});
             setMessage(response.status.toString());
             if (response.status === 200) {
                 navigate('/blogs');

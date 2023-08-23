@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import axios from 'axios';
 import {Table} from 'react-bootstrap';
-
+import {axiosInstance} from './utils';
 
 const Blogs = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:8000/api/blogs').then(r => setData(r.data))
+        axiosInstance.get('/api/blogs').then(r => setData(r.data))
             .catch(error => {
                 console.error(error);
             });

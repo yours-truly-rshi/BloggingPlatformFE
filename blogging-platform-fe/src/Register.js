@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import axios from 'axios';
+import {axiosInstance} from './utils';
 import {Link} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -27,7 +27,7 @@ const Register = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:8000/api/users/register', {email, password, name});
+            const response = await axiosInstance.post('/api/users/register', {email, password, name});
             setMessage(response.status.toString());
         } catch (error) {
             setMessage("Request Denied");
