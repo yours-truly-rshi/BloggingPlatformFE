@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import LoginForm from "./LoginForm";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Register = () => <h2>Register</h2>;
 
