@@ -1,11 +1,17 @@
 import React from 'react';
-import LoginForm from './LoginForm';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import LoginForm from "./LoginForm";
+
+const Register = () => <h2>Register</h2>;
 
 function App() {
     return (
-        <div className="App">
-            <LoginForm/>
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element={<LoginForm/>}/>
+                <Route path="/register" element={<Register/>}/>
+            </Routes>
+        </Router>
     );
 }
 

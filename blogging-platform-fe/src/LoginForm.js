@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom";
+
 
 const LoginForm = () => {
     const [email, setEmail] = useState('');
@@ -19,9 +21,9 @@ const LoginForm = () => {
 
         try {
             const response = await axios.post('http://localhost:8000/api/users/login', {email, password});
-            setMessage(response.data.message);
+            setMessage(response.status.toString());
         } catch (error) {
-            setMessage('An error occurred during login.');
+            setMessage('Incorrect Email / Password.');
         }
     };
 
@@ -48,6 +50,9 @@ const LoginForm = () => {
                     />
                 </div>
                 <button type="submit">Login</button>
+                <Link to="/register" style={{padding: 5, color: "#8fea04"}}>
+                    Register
+                </Link>
             </form>
             <p>{message}</p>
         </div>
