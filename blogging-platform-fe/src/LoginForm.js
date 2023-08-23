@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -9,6 +9,7 @@ const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const navigate = useNavigate();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -24,6 +25,9 @@ const LoginForm = () => {
         try {
             const response = await axios.post('http://localhost:8000/api/users/login', {email, password});
             setMessage(response.status.toString());
+            if (response.status === 200) {
+                navigate('/blogs');
+            }
         } catch (error) {
             setMessage('Incorrect Email / Password.');
         }
@@ -36,12 +40,13 @@ const LoginForm = () => {
 
                 <Form.Group className="mb-3" controlId="email">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control value={email} onChange={handleEmailChange} type="email" placeholder="Enter email" />
+                    <Form.Control value={email} onChange={handleEmailChange} type="email" placeholder="Enter email"/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="password">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control value={password} onChange={handlePasswordChange} type="password" placeholder="Password" />
+                    <Form.Control value={password} onChange={handlePasswordChange} type="password"
+                                  placeholder="Password"/>
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
