@@ -6,7 +6,7 @@ import Register from "./Register";
 import Home from "./Home";
 import Blogs from "./Blogs";
 import SingleBlog from "./SingleBlog"
-
+import Profile from "./Profile"
 
 function App() {
     return (
@@ -17,6 +17,7 @@ function App() {
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/blogs" element={<Blogs/>}/>
                 <Route path="/singleblog/:id" element={<SingleBlog/>}/>
+                <Route path="/profile" element={<Profile/>}/>
             </Routes>
         </Router>
     );
