@@ -26,8 +26,7 @@ const LoginForm = () => {
             const response = await axiosInstance.post('/api/users/login', {email, password});
             setMessage(response.status.toString());
             if (response.status === 200) {
-                localStorage.setItem('jwtToken', response.data.token);
-                // setAuthToken(response.data.token);
+                await localStorage.setItem('jwtToken', response.data.token);
                 navigate('/blogs');
             }
         } catch (error) {
