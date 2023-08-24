@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Table} from 'react-bootstrap';
 import {axiosInstance} from './utils';
+import {useNavigate} from "react-router-dom";
+
 
 const Blogs = () => {
     const [data, setData] = useState([]);
@@ -10,6 +12,13 @@ const Blogs = () => {
                 console.error(error);
             });
     }, []);
+    const navigate = useNavigate();
+
+
+    const handleRowClick = ({id}) => {
+        console.log('Data:', id);
+        navigate(`/SingleBlog/${id}`);
+    };
 
     return (
         <div>
@@ -25,7 +34,7 @@ const Blogs = () => {
                 </thead>
                 <tbody>
                 {data.map((item, index) => (
-                    <tr key={index}>
+                    <tr key={index} onClick={() => handleRowClick(item)}>
                         <td>{index + 1}</td>
                         {/*<td>{item.id}</td>*/}
                         <td>{item.topic}</td>

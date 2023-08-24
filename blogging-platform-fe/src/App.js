@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from "./Register";
 import Home from "./Home";
 import Blogs from "./Blogs";
+import SingleBlog from "./SingleBlog"
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
                 <Route path="/login" element={<LoginForm/>}/>
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/blogs" element={<Blogs/>}/>
+                <Route path="/singleblog/:id" element={<SingleBlog/>}/>
             </Routes>
         </Router>
     );
