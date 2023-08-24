@@ -7,15 +7,13 @@ const SingleBlog = () => {
     const [topic, setTopic] = useState('')
     const [data, setData] = useState('')
     const {id} = useParams();
-    useEffect(async () => {
-        try {
-            const response = await axiosInstance.get(`/api/blogs/${id}`);
-            console.log(response.data)
-            setData(response.data.data)
-            setTopic(response.data.topic)
-        } catch (error) {
-            console.log("Request Denied");
-        }
+    useEffect(() => {
+        axiosInstance.get(`/api/blogs/${id}`).then(response => {
+            setData(response.data.data);
+            setTopic(response.data.topic);
+        }).catch(error => {
+            console.error(error)
+        })
     }, []);
 
 
