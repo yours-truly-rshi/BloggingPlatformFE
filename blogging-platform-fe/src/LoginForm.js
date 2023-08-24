@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {axiosInstance, setAuthToken} from './utils';
+import {axiosInstance} from './utils';
 import {Link, useNavigate} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -27,7 +27,7 @@ const LoginForm = () => {
             setMessage(response.status.toString());
             if (response.status === 200) {
                 localStorage.setItem('jwtToken', response.data.token);
-                setAuthToken(response.data.token);
+                // setAuthToken(response.data.token);
                 navigate('/blogs');
             }
         } catch (error) {
