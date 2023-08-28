@@ -55,11 +55,11 @@ const ProfileUpdate = ({isOpen, onRequestClose, name, email, password}) => {
                 </label>
                 <label>
                     Email:
-                    <input type="email" value={updatedEmail} onChange={handleEmailChange}/>
+                    <input type="email" value={updatedEmail} onChange={handleEmailChange} autoComplete="off"/>
                 </label>
                 <label>
                     Password:
-                    <input type="password" value={updatedPassword} onChange={handlePasswordChange}/>
+                    <input type="password" value={updatedPassword} onChange={handlePasswordChange} autoComplete="new-password"/>
                 </label>
                 <button type="submit">Update</button>
                 <button onClick={onRequestClose}>Cancel</button>

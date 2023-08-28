@@ -23,7 +23,6 @@ const Profile = () => {
         const token = localStorage.getItem('jwtToken');
         const decodedToken = jwt_decode(token);
         const id = decodedToken.sub;
-        setID(id);
         axiosInstance.get(`/api/users/${id}`).then(response => {
             setName(response.data.name)
             setPassword(response.data.password)
