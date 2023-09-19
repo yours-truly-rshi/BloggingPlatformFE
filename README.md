@@ -1,7 +1,7 @@
 
 # Blogging Platform Frontend
 
-ReactJs based minimal frontend service to interact with backend and email microservice developed in FastAPI (Python)
+ReactJs based minimal frontend service to interact with backend and email microservice developed with FastAPI (Python)
 
 ## Features
 
